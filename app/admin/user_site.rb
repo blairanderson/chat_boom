@@ -1,4 +1,5 @@
 ActiveAdmin.register UserSite do
+  permit_params 
 
 
   # See permitted parameters documentation:
