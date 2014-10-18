@@ -1,4 +1,5 @@
 ActiveAdmin.register Site do
+  permit_params :guid, :name, :url
 
 
   # See permitted parameters documentation:
