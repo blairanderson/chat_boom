@@ -1,4 +1,9 @@
-# Signup#A
+[![Code Climate](https://codeclimate.com/github/blairanderson/chat_boom/badges/gpa.svg)](https://codeclimate.com/github/blairanderson/chat_boom)
+[![Test Coverage](https://codeclimate.com/github/blairanderson/chat_boom/badges/coverage.svg)](https://codeclimate.com/github/blairanderson/chat_boom)
+
+# README DRIVEN DEVELOPMENT
+
+## Signup#A
 
 1. click "start talking"
 1. provide a snippet to install
@@ -8,7 +13,7 @@
 
 
 
-# Signup#B
+## Signup#B
 
 1. user signs up.
 1. UX

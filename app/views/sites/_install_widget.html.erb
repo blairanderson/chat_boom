@@ -2,11 +2,13 @@
 <div class="col-xs-12 well">
   <code>
     <textarea cols="100" rows="10">
+
         <script>
           window.chatBoomSettings = {
             email: "example@gmail.com", // user.email
             created_at: 1413739970, // user.created_at.to_i(unix timestamp)
-            app_id: "<%= @site.guid %>"
+            app_id: "<%= @site.guid %>",
+            user_hash: "<%= OpenSSL::HMAC.hexdigest("sha256", @site.secret, current_user.email) %>" //OpenSSL::HMAC.hexdigest("sha256", @site.secret, current_user.email)
           };
         </script>
       <% if Rails.env.production? %>
@@ -23,11 +25,15 @@
           } else {
             var d = document;
             var i = function () {
+              console.log("arguments", arguments);
               i.c(arguments)
+              debugger
             };
             i.q = [];
             i.c = function (args) {
+              console.log("args", args);
               i.q.push(args)
+              debugger
             };
             w.ChatBoom = i;
             function l() {
