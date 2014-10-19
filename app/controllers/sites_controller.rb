@@ -18,7 +18,10 @@ class SitesController < ApplicationController
     if current_user.sites.unconfirmed.count>0
       site = current_user.sites.unconfirmed.take(1)
     else
-      site = current_user.sites.create({guid: SecureRandom.uuid})
+      site = current_user.sites.create({
+                                           guid: SecureRandom.uuid,
+                                           secret: SecureRandom.hex
+                                       })
     end
     redirect_to edit_site_path(site)
   end
@@ -30,14 +33,17 @@ class SitesController < ApplicationController
   end
 
   def update
-    if @site.update(site_params)
-      redirect_to site_path(@site)
-    else
-      redirect_to site_path(@site)
-    end
+    @site.update(site_params)
+    redirect_to site_path(@site)
   end
 
   def destroy
+    if @site.destroy
+      redirect_to welcome_sites_path
+    else
+      render :edit
+    end
+
   end
 
   def welcome

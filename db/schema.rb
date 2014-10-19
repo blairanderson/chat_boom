@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018201521) do
+ActiveRecord::Schema.define(version: 20141019222132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+  enable_extension "uuid-ossp"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,9 +80,10 @@ ActiveRecord::Schema.define(version: 20141018201521) do
     t.string   "guid"
     t.string   "name"
     t.string   "url"
-    t.integer  "status",     default: 0, null: false
+    t.integer  "status",     default: 0,                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "secret",     default: "uuid_generate_v4()", null: false
   end
 
   create_table "user_sites", force: true do |t|
