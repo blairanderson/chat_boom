@@ -1,10 +1,13 @@
 class SitesController < ApplicationController
-  before_action :require_user_signed_in
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :require_user_signed_in
+
+  skip_before_action :verify_authenticity_token, only: [:widget]
+  skip_before_action :require_user_signed_in, only: [:widget]
 
   def widget
-    layout false
-    binding.pry
+    @site = Site.find_by_guid(params[:guid])
+    render layout: false
   end
 
   def index
