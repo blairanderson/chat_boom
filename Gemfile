@@ -1,3 +1,4 @@
+ruby '2.1.2'
 source 'https://rubygems.org'
 
 
@@ -17,6 +18,10 @@ gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
