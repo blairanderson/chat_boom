@@ -4,6 +4,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :guid
       t.string :name
       t.string :url
+      t.integer :status, null: false, default: 0
 
       t.timestamps
     end

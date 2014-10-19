@@ -1,0 +1,53 @@
+
+<div class="col-xs-12 well">
+  <code>
+    <textarea cols="100" rows="10">
+        <script>
+          window.chatBoomSettings = {
+            email: "example@gmail.com", // user.email
+            created_at: 1413739970, // user.created_at.to_i(unix timestamp)
+            app_id: "<%= @site.guid %>"
+          };
+        </script>
+      <% if Rails.env.production? %>
+        <script>
+          (function(){var w=window;var ic=w.ChatBoom;if(typeof ic==="function"){ic('reattach_activator');ic('update',chatBoomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.ChatBoom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='<%= widget_path(guid: @site.guid) %>';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+        </script>
+      <% else %>
+        <script>(function () {
+          var w = window;
+          var ic = w.ChatBoom;
+          if (typeof ic === "function") {
+            ic('reattach_activator');
+            ic('update', chatBoomSettings);
+          } else {
+            var d = document;
+            var i = function () {
+              i.c(arguments)
+            };
+            i.q = [];
+            i.c = function (args) {
+              i.q.push(args)
+            };
+            w.ChatBoom = i;
+            function l() {
+              var s = d.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = '<%= widget_url(guid: @site.guid) %>';
+              var x = d.getElementsByTagName('script')[0];
+              x.parentNode.insertBefore(s, x);
+            }
+
+            if (w.attachEvent) {
+              w.attachEvent('onload', l);
+            } else {
+              w.addEventListener('load', l, false);
+            }
+          }
+        })()</script>
+      <% end %>
+
+    </textarea>
+  </code>
+</div>

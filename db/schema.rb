@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20141018201521) do
     t.string   "guid"
     t.string   "name"
     t.string   "url"
+    t.integer  "status",     default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
