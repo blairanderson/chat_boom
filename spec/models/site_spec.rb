@@ -9,6 +9,7 @@ RSpec.describe Site, :type => :model do
   end
 
   describe "associations" do
+    it {should have_many(:events)}
     it {should have_many(:user_sites)}
     it {should have_many(:users).through(:user_sites)}
   end
