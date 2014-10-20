@@ -1,13 +1,13 @@
 <% if current_user %>
-  <script>
-    window.chatBoomSettings = {
-      email: "<%= current_user.email %>", // user.email
-      created_at: <%= current_user.created_at.to_i %>, // user.created_at.to_i(unix timestamp)
-      app_id: "e62455d7-e5d5-477f-b133-56f9d9afffe2"
-    };
-  </script>
   <% if Rails.env.development? %>
-    <script>(function () {
+
+    <script>
+      window.chatBoomSettings = {
+        email: "<%= current_user.email %>", // user.email
+        created_at: <%= current_user.created_at.to_i %>, // user.created_at.to_i(unix timestamp)
+        app_id: "e62455d7-e5d5-477f-b133-56f9d9afffe2"
+      };
+      (function () {
       var w = window;
       var ic = w.ChatBoom;
       if (typeof ic === "function") {
@@ -41,6 +41,11 @@
     })()</script>
   <% else %>
     <script>
+      window.chatBoomSettings = {
+        email: "<%= current_user.email %>", // user.email
+        created_at: <%= current_user.created_at.to_i %>, // user.created_at.to_i(unix timestamp)
+        app_id: "26272e79-bd5c-4a2b-bb6f-cb3dc9bcf8a1"
+      };
       (function () {
         var w = window;
         var ic = w.ChatBoom;
