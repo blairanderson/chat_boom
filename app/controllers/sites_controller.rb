@@ -18,10 +18,7 @@ class SitesController < ApplicationController
     if current_user.sites.unconfirmed.count>0
       site = current_user.sites.unconfirmed.take(1)
     else
-      site = current_user.sites.create({
-                                           guid: SecureRandom.uuid,
-                                           secret: SecureRandom.hex
-                                       })
+      site = current_user.sites.create(guid: SecureRandom.uuid, secret: SecureRandom.hex)
     end
     redirect_to edit_site_path(site)
   end

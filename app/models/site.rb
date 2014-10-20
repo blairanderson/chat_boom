@@ -1,7 +1,7 @@
 class Site < ActiveRecord::Base
   has_many :user_sites
   has_many :users, through: :user_sites
-  has_many :events
+  has_many :events, -> { order(created_at: :desc) }
 
   validates_presence_of :guid, :secret
   validates_uniqueness_of :guid, :secret
