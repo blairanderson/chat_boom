@@ -1,5 +1,5 @@
 class SitesController < ApplicationController
-  before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :set_site, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :require_user_signed_in
 
   skip_before_action :verify_authenticity_token, only: [:widget]
@@ -12,6 +12,14 @@ class SitesController < ApplicationController
 
   def index
     @sites = current_user.sites
+  end
+
+  def confirm
+    if @site.events.count>0 && @site.confirmed!
+      redirect_to site_path(@site)
+    else
+      redirect_to edit_site_path(@site)
+    end
   end
 
   def new

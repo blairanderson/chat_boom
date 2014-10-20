@@ -9,6 +9,5 @@ class Site < ActiveRecord::Base
   enum status: [:unconfirmed, :confirmed]
 
   scope :confirmed, -> { where(status: Site.statuses[:confirmed])}
-
   scope :unconfirmed, -> { where(status: Site.statuses[:unconfirmed]) }
 end

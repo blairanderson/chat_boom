@@ -1,4 +1,8 @@
-<h3>Your Site Token is <code><%= @site.guid %></code>. <strong>Please Install the Snippet!</strong></h3>
+<h3>Your Site Token is <code><%= @site.guid %></code></h3>
+
+<h3>
+  <%= link_to "Confirm Installation?", confirm_site_path(@site), method: :post %>
+</h3>
 
 <%= render "install_widget" %>
 

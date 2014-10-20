@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     collection do
       get :welcome
     end
+    member do
+      post :confirm
+    end
   end
 
   resources :events
