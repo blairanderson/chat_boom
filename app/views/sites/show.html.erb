@@ -1,1 +1,8 @@
 <h2>Dashboard <small><%= @site.name %><i>(<%= link_to "update", edit_site_path(@site) %>)</i></small></h2>
+
+Events: <%= @site.events.count %>
+<hr/>
+<% @site.events.each do |event| %>
+  <%= event.inspect %>
+  <hr/>
+<% end %>

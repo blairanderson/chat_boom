@@ -24,6 +24,10 @@ Rails.application.routes.draw do
       get :welcome
     end
   end
+
+  resources :events
+
   get 'widget/:guid', to: 'sites#widget', defaults: { format: 'js' }, as: :widget
+
   root 'welcome#root'
 end
