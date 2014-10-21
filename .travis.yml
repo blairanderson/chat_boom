@@ -1,14 +1,4 @@
-before_install:
-  - echo '--colour' > ~/.rspec
-branches:
-  only:
-  - master
-cache:
-  - bundler
-language:
-  - ruby
-notifications:
-  email:
-  - false
+bundler_args: --without production
+language: ruby
 rvm:
   - 2.1.2
