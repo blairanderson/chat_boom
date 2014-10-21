@@ -18,6 +18,7 @@ gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
+gem 'keen'
 
 group :production do
   gem 'rails_12factor'

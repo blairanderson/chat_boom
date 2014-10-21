@@ -32,6 +32,17 @@ class SitesController < ApplicationController
   end
 
   def show
+    # https://github.com/keenlabs/keen-gem/blob/master/README.md
+    # https://keen.io/docs/data-analysis/extractions/
+    # https://keen.io/project/5445cb627d8cb9143f769ac4
+    site_filter = {
+        property_name: "site_id",
+        property_value: @site.id,
+        operator: "eq"
+    }
+    @events = Keen.extraction('site_event', {
+        filters: [site_filter]
+    })
   end
 
   def edit

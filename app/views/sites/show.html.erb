@@ -1,9 +1,9 @@
 <div class="col-xs-12">
   <h2>Dashboard <small><%= @site.name %><i>(<%= link_to "update", edit_site_path(@site) %>)</i></small></h2>
 
-  Events: <%= @site.events.count %>
+  Events: <%= @events.count %>
   <hr/>
-  <% @site.events.each do |event| %>
+  <% @events.each do |event| %>
     <%= event.inspect %>
     <hr/>
   <% end %>
