@@ -30,6 +30,7 @@ group :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard-rspec', require: false
 end
 
 group :development, :test do
@@ -42,5 +43,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'capybara'
   gem 'codeclimate-test-reporter', require: nil
 end
