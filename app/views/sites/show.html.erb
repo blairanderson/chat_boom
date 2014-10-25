@@ -1,5 +1,10 @@
 <div class="col-xs-12">
-  <h2>Dashboard <small><%= @site.name %><i>(<%= link_to "update", edit_site_path(@site) %>)</i></small></h2>
+  <p><%= link_to "Add New Site", new_site_path %></p>
+  <h2>
+    <%= link_to "Dashboard", sites_path %>
+    <small><%= @site.name %><i>(<%= link_to "update", edit_site_path(@site) %>)</i></small>
+
+  </h2>
 
   Events: <%= @events.count %>
   <hr/>

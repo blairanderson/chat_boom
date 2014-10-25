@@ -7,7 +7,7 @@ class SitesController < ApplicationController
   end
 
   def confirm
-    if @site.events.count>0 && @site.confirmed!
+    if @site.events.count > 0 && @site.confirmed!
       redirect_to site_path(@site)
     else
       redirect_to edit_site_path(@site)
