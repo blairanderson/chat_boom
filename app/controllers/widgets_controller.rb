@@ -3,7 +3,6 @@ class WidgetsController <  ActionController::Base
   layout false
 
   def show
-    binding.pry
     @site = Site.find_by_guid(params[:id])
     unless @site
       head :error
