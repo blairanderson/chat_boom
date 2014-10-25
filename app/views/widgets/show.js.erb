@@ -1,8 +1,6 @@
 //http://benvinegar.github.io/seamless-talk/
 
 (function () {
-  var siteGuid = "<%= @site.guid %>";
-
   function observeUpdate(changes) {
     changes.forEach(function (change) {
       // Letting us know what changed
@@ -30,10 +28,14 @@
   ChatBoom('update', chatBoomSettings);
 
   if (chatBoomSettings.liveChat !== false) {
-    el = document.createElement('div');
+    var el = document.createElement('div');
     el.id = "chatboom-widget";
     debugger
     document.body.appendChild(el);
     el.innerHTML = "<h1>YOLOY</h1>"
+
+    var el_styles = document.createElement('style');
+    document.body.appendChild(el_styles);
+    el_styles.innerText = "<%= raw(render 'styles').html_safe %>";
   }
 })();
