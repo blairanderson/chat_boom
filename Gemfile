@@ -13,11 +13,11 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', github: 'plataformatec/devise'
 gem 'simple_form'
 gem 'delayed_job_active_record'
-gem 'binding_of_caller'
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 gem 'bootstrap-sass-extras'
-gem 'validates_formatting_of'
 gem 'tzinfo-data'
+
+# 3rd Party Libraries
 gem 'keen'
 
 group :production do
@@ -29,6 +29,7 @@ group :development do
   gem 'spring'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
