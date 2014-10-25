@@ -1,5 +1,6 @@
 [![Code Climate](https://codeclimate.com/github/blairanderson/chat_boom/badges/gpa.svg)](https://codeclimate.com/github/blairanderson/chat_boom)
 [![Test Coverage](https://codeclimate.com/github/blairanderson/chat_boom/badges/coverage.svg)](https://codeclimate.com/github/blairanderson/chat_boom)
+[![Build Status](https://travis-ci.org/blairanderson/chat_boom.svg?branch=master)](https://travis-ci.org/blairanderson/chat_boom)
 
 # README DRIVEN DEVELOPMENT
 
