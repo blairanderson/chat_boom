@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, controllers: {
       registrations: "users/registrations",
       sessions: "users/sessions",
       passwords: "users/passwords"
-  }, skip: [
-      :sessions,
-      :registrations
-  ]
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  }, skip: [:sessions, :registrations]
+
   devise_scope :user do
     get    "login"   => "users/sessions#new",         as: :new_user_session
     post   "login"   => "users/sessions#create",      as: :user_session
@@ -19,6 +17,9 @@ Rails.application.routes.draw do
     put    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
+
+  resources :events, only: [:create]
+  resources :widgets, only: [:show]
   resources :sites do
     collection do
       get :welcome
@@ -27,10 +28,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-
-  resources :events
-
-  get 'widget/:guid', to: 'sites#widget', defaults: { format: 'js' }, as: :widget
 
   root 'welcome#root'
 end
