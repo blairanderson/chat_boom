@@ -1,4 +1,24 @@
-bundler_args: --without production
-language: ruby
+before_install:
+  - echo '--colour' > ~/.rspec
+  - 'echo ''gem: --no-document'' > ~/.gemrc'
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+before_script:
+  - cp .sample.env .env
+  - psql -c 'create database "chat_boom_test";' -U postgres
+branches:
+  only:
+  - master
+cache:
+  - bundler
+language:
+  - ruby
+notifications:
+  email:
+  - false
 rvm:
   - 2.1.2
+addons:
+  postgresql: '9.3'
+env:
+  - CODECLIMATE_REPO_TOKEN=775abeeacfc755b3ac7ebfbca17686b0579cdb2398258e8e5a300b69224b1420
